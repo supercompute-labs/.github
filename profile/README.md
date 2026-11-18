@@ -1,8 +1,8 @@
 # Supercompute Labs
 
-**Datacenter speed, desk-side hardware.**
+**AI research and development solutions. Engineered for the impossible.**
 
-We tune local LLM inference on consumer GPUs and publish every result as a reproducible *dyno sheet*. Each sheet includes:
+We push AI inference past its limits, starting with consumer GPUs, and publish every result as a reproducible *dyno sheet*. Each sheet includes:
 - the hardware, model, quant and engine version;
 - before → after numbers;
 - the exact flags;
