@@ -2,22 +2,16 @@
 
 **AI research and development solutions. Engineered for the impossible.**
 
-We push AI inference past its limits, starting with consumer GPUs, and publish every result as a reproducible *dyno sheet*. Each sheet includes:
-- the hardware, model, quant and engine version;
-- before → after numbers;
-- the exact flags;
-- a quality gate;
-- raw logs, failures included.
+## ⚓ [Flagship](https://github.com/supercompute-labs/flagship): our inference stack
 
-## Dyno sheets
+Flagship gets large models running fast on hardware that shouldn't be able to run them. It has three parts:
+- **Tools:** cold-prompt benchmarking, A/B tuning with controls, and quality gates.
+- **Method:** a documented process for finding the fast settings and proving they're real. See [METHODOLOGY](https://github.com/supercompute-labs/flagship/blob/main/docs/METHODOLOGY.md).
+- **Recipes:** tuned, reproducible configs, with raw data and failures included.
 
-| # | Model | Hardware | Engine | Result |
-|---|---|---|---|---|
-| 001 | [Qwen3.8-Flash-Next UD-IQ4_XS](https://github.com/supercompute-labs/basalt-flashnext-5080) | RTX 5080 16 GB + 60 GB RAM | Basalt 0.4.1 | **55 → 149 tok/s** decode |
+| Recipe | Model | Hardware | Result |
+|---|---|---|---|
+| [001](https://github.com/supercompute-labs/flagship/tree/main/recipes/qwen38-flashnext-rtx5080-basalt) | Qwen3.8-Flash-Next (91 GB MoE) | 1× RTX 5080 16 GB | **47 → 149 tok/s** decode @ 64k |
+| 002 | DeepSeek-V4.1-Flash | 1× RTX 5080 16 GB | *in progress* |
 
-## How we measure
-- Cold prompts every request; no prompt-cache reuse.
-- One change at a time, with interleaved baseline controls.
-- Engine-reported token counts, never stream chunks.
-- Quality and long-context needle gates before any config is called "best".
-- Lossy speedups are labeled as lossy.
+**Cold or it didn't happen** · **One change at a time** · **Lossy is labeled lossy** · **Publish the failures**
